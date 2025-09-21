@@ -1,5 +1,11 @@
-console.log('asliddin')
+const Logger = require("./logger")
 
-const user = require("./users")
+const newLogger = new Logger()
 
-console.log(user)
+newLogger.on("message", (data) => {
+    console.log("Logging: ", data)
+})
+
+newLogger.log("GET", "/asliddin/lessons")
+newLogger.log("PUT", "/asliddin/lessons")
+newLogger.log("PATCH", "/asliddin/lessons")
